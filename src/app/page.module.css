@@ -1,0 +1,247 @@
+.page {
+  --background: #fafafa;
+  --foreground: #fff;
+
+  --text-primary: #000;
+  --text-secondary: #666;
+
+  --button-primary-hover: #383838;
+  --button-secondary-hover: #f2f2f2;
+  --button-secondary-border: #ebebeb;
+
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-geist-sans);
+  background-color: var(--background);
+  overflow-y: hidden;
+}
+.hero {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('/herobg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 90%;
+  animation: heroload 2s ease 4s forwards;
+
+}
+.onload {
+  top: -100vh;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  background-position: 50% 50%;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  animation: outload 5s ease forwards;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.headerItem2 {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 17vw;
+  height: 80px;
+}
+.arrowKey {
+  filter: invert(1);
+  animation: fadeup 2s ease forwards;
+}
+.onloadText {
+  font-family: var(--font-montserrat);
+  color: white;
+  font-size: 24px;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeup 1.5s ease forwards;
+}
+.header {
+  background: linear-gradient(white, rgba(255, 255, 255, 0));
+  padding-top: 20px;
+  padding-right: 3vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: headerload 2s ease 4s forwards;
+}
+.header h1 {
+  font-family: var(--font-montserrat);
+  font-weight: 300;
+  font-size: 30px;
+  color: var(--text-primary);
+}
+.headerItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20vw;
+  height: 80px;
+}
+.headerItem h1 {
+  cursor: pointer;
+}
+.headerItem span {
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.nav {
+  height: 7vh;
+  width: 40vw;
+  border: solid 1px black;
+  border-radius: 30px;
+}
+.headerItem span:hover {
+  transform: translateY(-5px);
+  color: white;
+  text-shadow: #000 0px 0px 10px;
+}
+.ctaHeader {
+  font-family: var(--font-montserrat);
+  font-weight: 200;
+  text-align: center;
+  height: 6vh;
+  width: auto;
+  padding: 0 20px;
+  font-size: 18px;
+  font-family: var(--font-montserrat);
+  background-color: black;
+  border: none;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+.ctaHeader:hover {
+  font-weight: 400;
+  box-shadow: #000 0px 0px 80px;
+  position: absolute;
+  padding: 0px 25px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+.ctaHeader::after {
+  content: " →";
+  color: white;
+}
+.ctaHeader:hover::after {
+  color: rgb(0, 0, 0);
+}
+.heroTitle {
+  font-family: var(--font-montserrat);
+  font-weight: 100;
+  color: black;
+  font-size: 120px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeup 1.5s ease 4s forwards;
+  z-index: 100;
+}
+.heroSubtitle {
+  margin-top: -20px;
+  font-family: var(--font-montserrat);
+  font-weight: 300;
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeup 2s ease 4s forwards;
+}
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 18vh;
+  width: 100vw;
+  position: absolute;
+  top: 15vh;
+  left: 0;
+}
+.heroBottom {
+  display: flex;
+  position: absolute;
+  bottom: 2vh;
+  left: 0;
+  width: 100vw;
+  height: 45vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+.bottomRight {
+  padding-top: 20px;
+  background: #ffffff23;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 45vh;
+  width: 15vw;
+  border-radius: 30px;
+  backdrop-filter: blur(20px);  will-change: backdrop-filter;
+  animation: fadeup 2s ease 4s forwards;
+}
+.bottomRight h3 {
+  font-family: var(--font-montserrat);
+  font-weight: 300;
+  color: white;
+  font-size: 16px;
+  padding: 20px;
+}
+.bio {
+  filter: invert(1);
+}
+@keyframes outload {
+  0% {
+    top: 0;
+  }
+  20% {
+    top: 0;
+  }
+  80% {
+    top: 0;
+  }
+  100% {
+    top: 100vh;
+  }
+}
+@keyframes heroload {
+  0% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 50% 90%;
+  }
+}
+@keyframes headerload {
+  0% {
+    top: -20vh;
+  }
+  100% {
+    top: 0;
+  }
+}
+@keyframes fadeup {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
