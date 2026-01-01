@@ -16,6 +16,9 @@
   font-family: var(--font-geist-sans);
   background-color: var(--background);
   overflow-y: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border: solid white 3px;
 }
 .hero {
   height: 100vh;
@@ -67,10 +70,11 @@
   animation: fadeup 1.5s ease forwards;
 }
 .header {
-  background: linear-gradient(white, rgba(255, 255, 255, 0));
+  position: fixed;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   padding-top: 20px;
   padding-right: 3vw;
-  position: absolute;
   top: 0;
   left: 0;
   height: 80px;
@@ -79,7 +83,9 @@
   align-items: center;
   justify-content: space-between;
   animation: headerload 2.5s ease 4s forwards;
+  z-index: 20000;
 }
+
 .header h1 {
   font-family: var(--font-montserrat);
   font-weight: 300;
@@ -173,7 +179,7 @@
   left: 0;
 }
 .heroBottom {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.349));
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.349));
   display: flex;
   position: absolute;
   bottom: 2vh;
@@ -200,8 +206,7 @@
 .bottomRight {
   position: relative;
   padding-top: 20px;
-  background: #00000023;
-  box-shadow: #ffffff -0.5px -2px 5px inset;
+  background: #ffffff23;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -210,8 +215,7 @@
   width: 15vw;
   bottom: 2vh;
   border-radius: 30px;
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(20px);
   will-change: backdrop-filter;
   animation: fadeup 2.5s ease 4s forwards;
   pointer-events: auto;
@@ -225,9 +229,8 @@
   height: 30vh;
   bottom: -13vh;
   color: white;
-  background: #00000037;
-  box-shadow: #ffffff -0.5px -2px 5px inset;
-  backdrop-filter: blur(5px);
+  background: #ffffff3e;
+  backdrop-filter: blur(20px);
   border-radius: 20px;
   padding: 30px;
   animation: fadeup 2.5s ease 4s forwards;
@@ -250,6 +253,13 @@
   color: #ffffff;
   margin: 0;
 }
+.details {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: black;
+  z-index: 1;
+}
 @keyframes outload {
   0% {
     top: 0;
@@ -271,6 +281,20 @@
   100% {
     background-position: 50% 90%;
   }
+}
+@keyframes heroReverse {
+  0% {
+    background-position: 50% 90%;
+  }
+  100% {
+    background-position: 50% 50%;
+  }
+}
+.heroExpanded {
+  animation: heroReverse 2s ease forwards;
+}
+.heroNormal {
+  animation: heroload 2s ease forwards;
 }
 @keyframes headerload {
   0% {
@@ -297,4 +321,61 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+@keyframes fadeDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+}
+.heroTitleExpanded {
+  animation: fadeDown 2s ease forwards;
+}
+.heroTitleNormal {
+  animation: fadeup 2s ease forwards;
+}
+.heroSubtitleExpanded {
+  animation: fadeDown 2.5s ease forwards;
+}
+.heroSubtitleNormal {
+  animation: fadeup 2.5s ease forwards;
+}
+.bottomLeftExpanded {
+  animation: fadeDown 2s ease forwards;
+}
+.bottomLeftNormal {
+  animation: fadeup 2s ease forwards;
+}
+.bottomRightExpanded {
+  animation: fadeDown 2s ease forwards;
+}
+.bottomRightNormal {
+  animation: fadeup 2s ease forwards;
+}
+
+/* Details section that slides up from bottom */
+.details {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translateY(100vh);
+  transition: transform 0.8s ease-out;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+}
+
+.detailsExpanded {
+  transform: translateY(0);
 }
